@@ -1,0 +1,197 @@
+.profile_header {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: 0 0 40px 0 rgba(94, 92, 154, .06);
+    padding-bottom: 32px;
+
+    .profile_header_cover {
+        width: 100%;
+        height: 356px;
+        background-image: url('../../assets/images/profile/profile_bg.jpg');
+        background-position: center center;
+        background-size: cover;
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+    }
+
+    .profile_header_info {
+        height: 100%;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+
+        .profile_header_info__description {
+            position: relative;
+            padding-top: 52px;
+
+            .profile_name {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                font-size: 24px;
+                font-weight: 700;
+
+                .verified {
+                    display: flex;
+                    align-items: center;
+                    width: 25px;
+                    height: 25px;
+                    background-size: 100%;
+                    border-radius: 100%;
+                    margin-left: 5px;
+                    background-image: url('../../assets/images/profile/icons8-tiktok-verified-account-144.png');
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                }
+
+                .form_wrapper {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    position: relative;
+
+                    .profile_name__input {
+                        max-width: 100px;
+                        width: 100%;
+                        height: auto;
+                        color: #fff;
+                        padding: 10px;
+                        border-radius: 6px;
+                        border: none;
+                        background: #adafca;
+                        outline: none;
+                        font-size: 14px;
+                        letter-spacing: 0.4px;
+
+                        &::placeholder {
+                            color: #fff;
+                        }
+                    }
+
+                    .save_name_btn {
+                        padding: 10px;
+                    }
+
+                    .cancel_btn {
+                        padding: 10px;
+
+                        &:hover {
+                            background: #fd434f;
+                        }
+                    }
+                }
+
+                .profile_settings {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    align-items: center;
+                    width: auto;
+
+                    .edit_name_btn {
+                        margin-left: 10px;
+                        height: auto;
+                        padding: 10px;
+                    }
+
+                }
+            }
+
+            .profile_email {
+                display: flex;
+                position: absolute;
+                justify-content: center;
+                padding-top: 6px;
+                width: 100%;
+                font-size: 14px;
+                font-weight: 200;
+                color: #d9342c;
+            }
+
+            .user_avatar {
+                position: absolute;
+                top: -131px;
+                left: 50%;
+                width: 10rem;
+                height: 10rem;
+                background-position: center center;
+                transform: translate(-50%, -10%);
+
+                .user_avatar__img {
+                    border: 3px solid #fff;
+                    border-radius: 50%;
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+        }
+
+        .social_links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 32px;
+            width: 100%;
+
+            .link {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 50px;
+                height: 50px;
+                border-radius: 10px;
+                background-color: #3763d2;
+                color: #fff;
+                margin-right: 12px;
+                transition: transform .2s ease-in-out, -webkit-transform .2s ease-in-out;
+
+                &:hover {
+                    transform: translate(0, -4px);
+                }
+            }
+        }
+
+        .user_state {
+            display: flex;
+            position: relative;
+            justify-content: center;
+            margin-top: 40px;
+
+            .user_state__item {
+                padding: 0 30px;
+                width: 100%;
+
+                .title {
+                    font-weight: 700;
+                    text-align: center;
+                    font-size: 22px;
+                    color: #3e3f5e;
+                }
+
+                .text {
+                    margin-top: 10px;
+                    text-align: center;
+                    font-size: 12px;
+                    font-weight: 700;
+                    color: #adafca;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 455px) {
+    .social_links {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-items: center;
+        grid-gap: 10px;
+        margin-top: 32px;
+        width: 100%;
+    }
+}

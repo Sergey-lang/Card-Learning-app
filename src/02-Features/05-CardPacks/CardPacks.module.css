@@ -1,0 +1,42 @@
+.dataForm {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    width: 90%;
+    background-color: #fff;
+    padding: 30px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    box-shadow: 0 5px 15px rgb(0 0 50%);
+    justify-content: space-around;
+}
+
+.search {
+    display: flex;
+    height: max-content;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    padding: 15px;
+    flex-wrap: wrap;
+    box-shadow: 0 1px 5px rgba(5, 5, 6, 0.15);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.cardsBlock {
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.paginator {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+}
+
+.cardPacksTable {
+    display: grid;
+    grid-template-columns: 1fr;
+    font-family: 'Sintony', sans-serif;
+    font-weight: 700;
+    color: #2d4052;
+}
+
