@@ -1,0 +1,48 @@
+.input_wrapper {
+    position: relative;
+
+    .inputLabel {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        z-index: 2;
+        display: inline-block;
+        color: #adafca;
+        font-size: 1rem;
+        padding: 0 6px;
+        font-weight: 600;
+        line-height: 1em;
+        transition: all .3s ease-in-out;
+        margin-bottom: 3px;
+        pointer-events: none;
+
+        &.active {
+            font-size: 0.75rem;
+            background: #fff;
+            top: -6px;
+            left: 12px;
+        }
+    }
+
+    .input {
+        margin: 0 0 28px 0;
+        border: 1px solid #dedeea;
+        background: #fff;
+        transition: border-color .2s ease-in-out;
+        width: 100%;
+        box-sizing: border-box;
+        height: 54px;
+        padding: 0 18px;
+        border-radius: 12px;
+        font-size: 1rem;
+        outline: none;
+        font-weight: 700;
+
+        &:focus {
+            border-color: #615dfa;
+        }
+    }
+}
+
+
+

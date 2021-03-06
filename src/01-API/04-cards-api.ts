@@ -1,5 +1,5 @@
 import {instance} from './api';
-import {CardType} from '../02-Features/06-Cards/cards-reducer';
+import {CardType} from '../02-Pages/06-Cards/cards-reducer';
 
 export const cardsAPI = {
 

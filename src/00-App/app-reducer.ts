@@ -1,6 +1,6 @@
 import {ThunkDispatch} from 'redux-thunk';
 import {AppStoreType} from './store';
-import {getAuthUserData} from '../02-Features/01-Login/auth-reducer';
+import {getAuthUserData} from '../02-Pages/01-Login/auth-reducer';
 
 type ActionsType = ReturnType<typeof setAppStatus> | ReturnType<typeof initializedSuccess>
 

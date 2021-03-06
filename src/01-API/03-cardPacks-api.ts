@@ -1,5 +1,5 @@
 import {instance} from './api';
-import {CardPacksType} from '../02-Features/05-CardPacks/cardPacks-reducer';
+import {CardPacksType} from '../02-Pages/05-CardPacks/cardPacks-reducer';
 
 export const cardPacksAPI = {
 

@@ -1,5 +1,5 @@
 import {instance} from './api';
-import {UserDataType} from '../02-Features/01-Login/auth-reducer';
+import {UserDataType} from '../02-Pages/01-Login/auth-reducer';
 
 type UpdateUserResponse = {
     token: string

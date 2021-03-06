@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import Button from '../Button/Button';
-import {InputText} from '../InputText/InputText';
+import {Input} from '../Input/Input';
 
 type PropsType = {
     formName: string
@@ -34,7 +34,7 @@ export const SearchForm: React.FC<PropsType> = React.memo(({
     return (
         <div>
             <span>{formName}</span>
-            <InputText type={inputType} placeholder={placeholder} value={value} onChange={changeState}/>
+            <Input type={inputType} placeholder={placeholder} value={value} onChange={changeState}/>
             <Button onClick={onSendRequest} disabled={btnDisabled}>Search</Button>
         </div>
     )

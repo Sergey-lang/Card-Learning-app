@@ -1,0 +1,53 @@
+.checkbox_wrapper {
+    margin-bottom: 28px;
+    font-weight: 400;
+
+    input[type='checkbox'] {
+        width: 22px;
+        height: 22px;
+        border: 1px solid #dedeea;
+        border-radius: 6px;
+        background: #ffff;
+        margin: -.25rem .25rem 0 0;
+        vertical-align: middle;
+        color: #555;
+        cursor: pointer;
+        outline: 0;
+
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        -o-appearance: none;
+
+        &:checked {
+            border: none;
+
+            &:before {
+                border-radius: 6px;
+                background-color: #23d2e2;
+                background-image: url('./cross-mark-48.png');
+                background-size: 85%;
+                background-position: center;
+                content: '';
+                position: absolute;
+                width: 14px;
+                height: 14px;
+                margin: 0;
+                padding: 4px;
+                vertical-align: middle;
+                float: left;
+            }
+        }
+
+        &:focus {
+            border-color: #23d2e2;
+        }
+    }
+
+    .label {
+        font-weight: 700;
+        color: #3e3f5e;
+        font-size: 0.875rem;
+        line-height: 1.5;
+        vertical-align: middle;
+    }
+}

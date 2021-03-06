@@ -1,6 +1,6 @@
 import React, {ChangeEvent} from 'react';
 import {ModalWindow} from '../Modal';
-import {InputText} from '../../InputText/InputText';
+import {Input} from '../../Input/Input';
 import {UniversalButton} from '../../Button/FormButton/UniversalButton';
 
 type ModalUpdatePropsType = {
@@ -34,10 +34,10 @@ export const ModalForUpdateCard: React.FC<ModalUpdatePropsType> = React.memo((
         <div>
             <ModalWindow active={active} setActive={setActive}>
                 <h4>YOU CAN DO SOME CHANGES</h4>
-                <InputText type={'text'} onChange={handlerForUpdateQuestionCard}
-                                    placeholder={'Here you can update question'}/>
-                <InputText type={'text'} onChange={handlerForUpdateAnswerCard}
-                                    placeholder={'Here you can update answer'}/>
+                <Input type={'text'} onChange={handlerForUpdateQuestionCard}
+                       placeholder={'Here you can update question'}/>
+                <Input type={'text'} onChange={handlerForUpdateAnswerCard}
+                       placeholder={'Here you can update answer'}/>
                 <UniversalButton onClick={updateModalHandler}>Update</UniversalButton>
                 <UniversalButton onClick={updateModalHandlerCancel}>Cancel</UniversalButton>
             </ModalWindow>

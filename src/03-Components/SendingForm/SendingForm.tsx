@@ -1,9 +1,8 @@
 import React, {ChangeEvent, useState} from 'react';
 import {NavLink} from 'react-router-dom';
 import s from './SendingForm.module.css';
-import stylesContainer from '../../assets/css/container.module.css';
 import {UniversalButton} from '../Button/FormButton/UniversalButton';
-import {InputText} from '../InputText/InputText';
+import {Input} from '../Input/Input';
 
 type PropsType = {
     formName: string
@@ -55,24 +54,24 @@ export const SendingForm: React.FC<PropsType> = React.memo((
     return (
         <div className={s.formWrapper}>
             <h4>{formName}</h4>
-            <div className={stylesContainer.inner}>
+            <div>
                 <h3 className={s.title}>{formDescription}</h3>
                 {
                     status && <span>{status}</span>
                 }
                 <div>
                     <div>
-                        <InputText type={inputType}
-                                            onEnter={buttonOnClick}
-                                            value={value}
-                                            placeholder={inputPlaceholder && inputPlaceholder}
-                                            onChange={inputHandler}/>
+                        <Input type={inputType}
+                               onEnter={buttonOnClick}
+                               value={value}
+                               placeholder={inputPlaceholder && inputPlaceholder}
+                               onChange={inputHandler}/>
                         <UniversalButton onClick={buttonOnClick}
                                          disabled={btnDisabled}>{buttonName}
                         </UniversalButton>
                         <hr/>
                         <p> Let's <NavLink to={navLinkPath ? navLinkPath : ''}
-                                           activeClassName={stylesContainer.activeLink} className={s.inactive}>
+                                           className={s.inactive}>
                             Sign in </NavLink></p>
                     </div>
                 </div>

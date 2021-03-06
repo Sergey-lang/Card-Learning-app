@@ -1,11 +1,12 @@
-import React, {ChangeEvent, DetailedHTMLProps, InputHTMLAttributes} from 'react';
-import s from './CheckBox.module.css';
+import React, {ChangeEvent, DetailedHTMLProps, InputHTMLAttributes, useState} from 'react';
+import s from './CheckBox.module.scss';
 
 type DefaultInputPropsType = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
 
 type SuperCheckboxPropsType = DefaultInputPropsType & {
     onChangeChecked?: (checked: boolean) => void
     spanClassName?: string
+    label?: string
 };
 
 export const CheckBox: React.FC<SuperCheckboxPropsType> = React.memo((
@@ -14,28 +15,31 @@ export const CheckBox: React.FC<SuperCheckboxPropsType> = React.memo((
         onChange, onChangeChecked,
         className, spanClassName,
         children,
+        label,
 
         ...restProps
     }
 ) => {
+
     const onChangeCallback = (e: ChangeEvent<HTMLInputElement>) => {
 
         onChange && onChange(e);
         onChangeChecked && onChangeChecked(e.currentTarget.checked);
     }
 
-    const finalInputClassName = `${s.checkbox} ${className ? className : ''}`;
+    const finalLabelStyle = `${s.label} ${className ? className : ''}`;
+    const finalCheckboxStyle = `${className}`
 
     return (
-        <label>
+        <p className={s.checkbox_wrapper}>
             <input
                 type={'checkbox'}
                 onChange={onChangeCallback}
-                className={finalInputClassName}
+                className={finalCheckboxStyle}
 
                 {...restProps}
             />
-            {children && <span className={s.spanClassName}>{children}</span>}
-        </label>
+            <label className={finalLabelStyle}>{label}</label>
+        </p>
     )
 })

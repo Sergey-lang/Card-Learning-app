@@ -1,18 +1,17 @@
 import React from 'react';
 import {Redirect, Route, Switch} from 'react-router-dom';
-import {Profile} from '../../02-Features/04-Profile/Profile';
-import {Login} from '../../02-Features/01-Login/Login';
-import {Registration} from '../../02-Features/02-Registration/Registration';
-import {ResetPassword} from '../../02-Features/03-PasswordRecovery/ResetPassword';
-import {PasswordRecovery} from '../../02-Features/03-PasswordRecovery/PasswordRecovery';
-import {CardPacks} from '../../02-Features/05-CardPacks/CardPacks';
-import {Cards} from '../../02-Features/06-Cards/Cards';
-import {LearningPage} from '../../02-Features/07-Learning/LearningPage';
-import {Page404} from '../../02-Features/08-Page404/Page404';
+import {ProfilePage} from '../../02-Pages/04-Profile/ProfilePage';
+import {Login} from '../../02-Pages/01-Login/Login';
+import {Registration} from '../../02-Pages/02-Registration/Registration';
+import {CardsPage} from '../../02-Pages/06-Cards/CardsPage';
+import {LearningPage} from '../../02-Pages/07-Learning/LearningPage';
 
 import s from './Routes.module.css'
+import AuthRedirectPage from '../../helpers/AuthRedirectPage';
+import {withSuspense} from '../../helpers/withSuspence';
+import { CardPacksPage } from '../../02-Pages/05-CardPacks/CardPacksPage';
 
-export const path = {
+export const PATH = {
     LOGIN: '/login',
     REG: '/registration',
     PASSWORD_POST: '/newPassword/:token?',
@@ -24,20 +23,24 @@ export const path = {
     ALL_COMPONENTS: '/allComponents',
 }
 
+const PasswordRecovery = React.lazy(() => import('../../02-Pages/03-PasswordRecovery/PasswordRecoveryPage'))
+const ResetPassword = React.lazy(() => import('../../02-Pages/03-PasswordRecovery/ResetPasswordPage'))
+const Page404 = React.lazy(() => import('../../02-Pages/08-Page404/Page404'))
+
 function Routes() {
     return (
-        <div className={s.routes}>
+        <div className={s.app_container}>
             <Switch>
-                <Route path='/' exact render={() => <Redirect to={path.PROFILE}/>}/>
-                <Route path={path.LOGIN} exact render={() => <Login/>}/>
-                <Route path={path.REG} exact render={() => <Registration/>}/>
-                <Route path={path.PASSWORD_POST} exact render={() => <ResetPassword/>}/>
-                <Route path={path.PASS_REC} exact render={() => <PasswordRecovery/>}/>
-                <Route path={path.PROFILE} exact render={() => <Profile/>}/>
-                <Route path={path.CARD_PACKS} exact render={() => <CardPacks/>}/>
-                <Route path={path.CARDS + '/:id'} exact render={() => <Cards/>}/>
-                <Route path={path.LEARNING + '/:id'} exact render={() => <LearningPage/>}/>
-                <Route path={'/404'} render={() => <Page404/>}/>
+                <Route path='/' exact render={() => <Redirect to={PATH.PROFILE}/>}/>
+                <Route path={PATH.LOGIN} exact render={() => <Login/>}/>
+                <Route path={PATH.REG} exact render={() => <Registration/>}/>
+                <Route path={PATH.PASSWORD_POST} exact render={withSuspense(ResetPassword)}/>
+                <Route path={PATH.PASS_REC} exact render={withSuspense(PasswordRecovery)}/>
+                <Route path={PATH.PROFILE} exact render={() => <AuthRedirectPage><ProfilePage/></AuthRedirectPage>}/>
+                <Route path={PATH.CARD_PACKS} exact render={() => <AuthRedirectPage><CardPacksPage/></AuthRedirectPage>}/>
+                <Route path={PATH.CARDS + '/:id'} exact render={() => <CardsPage/>}/>
+                <Route path={PATH.LEARNING + '/:id'} exact render={() => <AuthRedirectPage><LearningPage/></AuthRedirectPage>}/>
+                <Route path={'/404'} render={withSuspense(Page404)}/>
                 <Redirect from={'*'} to={'/404'}/>
             </Switch>
         </div>

@@ -1,6 +1,6 @@
 import React, {ChangeEvent} from 'react';
 import {ModalWindow} from '../Modal';
-import {InputText} from '../../InputText/InputText';
+import {Input} from '../../Input/Input';
 import {UniversalButton} from '../../Button/FormButton/UniversalButton';
 
 type ModalAddPropsType = {
@@ -37,12 +37,12 @@ export const ModalForAddPack: React.FC<ModalAddPropsType> = React.memo((
         <div>
             <ModalWindow active={active} setActive={setActive}>
                 <h4>ADD NEW PACK</h4>
-                <p>TITLE NEW PACK</p><InputText type={'text'}
-                                                         onChange={handlerForAddNamePack}
-                                                         placeholder={'Write title here'}/>
-                <p>TYPE NEW PACK</p> <InputText type={'text'}
-                                                         onChange={handlerForAddTypeNewPack}
-                                                         placeholder={'Write type of card pack here'}/>
+                <p>TITLE NEW PACK</p><Input type={'text'}
+                                            onChange={handlerForAddNamePack}
+                                            placeholder={'Write title here'}/>
+                <p>TYPE NEW PACK</p> <Input type={'text'}
+                                            onChange={handlerForAddTypeNewPack}
+                                            placeholder={'Write type of card pack here'}/>
                 <UniversalButton onClick={addPackHandler}>ADD</UniversalButton>
                 <UniversalButton onClick={addCardHandlerCancel}>CANCEL</UniversalButton>
             </ModalWindow>

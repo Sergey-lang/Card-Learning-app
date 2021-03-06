@@ -1,6 +1,6 @@
 import React, {ChangeEvent} from 'react';
 import {ModalWindow} from '../Modal';
-import {InputText} from '../../InputText/InputText';
+import {Input} from '../../Input/Input';
 import {UniversalButton} from '../../Button/FormButton/UniversalButton';
 
 type ModalAddPropsType = {
@@ -42,14 +42,14 @@ export const ModalForAddCards: React.FC<ModalAddPropsType> = React.memo((
         <div>
             <ModalWindow active={active} setActive={setActive}>
                 <h4>ADD NEW CARD</h4>
-                <p>QUESTION</p><InputText type={'text'}
-                                          onChange={handlerForAddQuestionCard}
-                                          placeholder={'Write your question here'}/>
-                <p>ANSWER</p> <InputText type={'text'}
-                                         onChange={handlerForAddAnswerCard}
-                                         placeholder={'Be sure to specify the answer'}/>
-                <p>TYPE</p> <InputText type={'text'} onChange={handlerForAddTypeCard}
-                                       placeholder={'Specify a type'}/>
+                <p>QUESTION</p><Input type={'text'}
+                                      onChange={handlerForAddQuestionCard}
+                                      placeholder={'Write your question here'}/>
+                <p>ANSWER</p> <Input type={'text'}
+                                     onChange={handlerForAddAnswerCard}
+                                     placeholder={'Be sure to specify the answer'}/>
+                <p>TYPE</p> <Input type={'text'} onChange={handlerForAddTypeCard}
+                                   placeholder={'Specify a type'}/>
                 <UniversalButton onClick={addCardHandler}>ADD</UniversalButton>
                 <UniversalButton onClick={addCardHandlerCancel}>Cancel</UniversalButton>
             </ModalWindow>
