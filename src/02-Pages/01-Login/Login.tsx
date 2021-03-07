@@ -35,39 +35,56 @@ export const Login: React.FC<LoginPropsType> = React.memo(() => {
 
     return (
         <div className={s.login_page}>
-            <div className={s.welcome_text}>
-                <div className={s.headline}>welocme to</div>
-                <div className={s.title}>packs</div>
-            </div>
-            <div className={s.login}>
-                <h1>Account Login</h1>
-                <div className={s.test_data}>
-                    <p>test email: nya-admin@nya.nya</p>
-                    <p>test password: 1qazxcvBG</p>
+            <div className={s.main_block}>
+                <div className={s.welcome_text}>
+                    <div className={s.headline}>welcome to</div>
+                    <div className={s.title}>packs</div>
+                    <p className={s.text_description}>Learn effectively using pictures, videos, and chat with your
+                        friends. Share your progress with others and follow the progress of your friends by viewing
+                        their profile!</p>
                 </div>
-                {/*<div className={s.login_error}>*/}
-                {/*    <strong>Error</strong>*/}
-                {/*    :Error message this*/}
-                {/*</div>*/}
-                <div className={s.form_wrapper}>
-                    <Input type={'email'}
-                           placeholder={'Email Address'}
-                           onChange={onclickEmail}/>
-                    <Input type={'password'}
-                           placeholder={'Password'}
-                           onChange={onclickPassword}/>
-                    <CheckBox onChangeChecked={setRememberMe} label='Remember me'/>
-                    <button disabled={appStatus === 'loading'}
-                            className={s.login_btn}
-                            onClick={onclickHandler}> Log in
-                    </button>
-                    <p className={s.forgot_password}><NavLink to={PATH.PASS_REC}
-                                                              className={s.inactive}>Lost your password?</NavLink></p>
-                    <p className={s.forgot_password}><NavLink to={PATH.REG}
-                                                              className={s.inactive}>Create an Account.</NavLink></p>
+                <div className={s.login}>
+                    <h1>Account Login</h1>
+                    <div className={s.test_data}>
+                        <p>test email: nya-admin@nya.nya</p>
+                        <p>test password: 1qazxcvBG</p>
+                    </div>
+                    {/*<div className={s.login_error}>*/}
+                    {/*    <strong>Error</strong>*/}
+                    {/*    :Error message this*/}
+                    {/*</div>*/}
+                    <div className={s.form_wrapper}>
+                        <Input type={'email'}
+                               placeholder={'Email Address'}
+                               onChange={onclickEmail}/>
+                        <Input type={'password'}
+                               placeholder={'Password'}
+                               onChange={onclickPassword}/>
+                        <CheckBox onChangeChecked={setRememberMe} label='Remember me'/>
+                        <button disabled={appStatus === 'loading'}
+                                className={s.login_btn}
+                                onClick={onclickHandler}> Log in
+                        </button>
+                        <p className={s.forgot_password}><NavLink to={PATH.PASS_REC}>Lost your password?</NavLink></p>
+                        <p className={s.forgot_password}><NavLink to={PATH.REG}>Create an Account.</NavLink></p>
+                    </div>
+                </div>
+            </div>
+            <div className={s.footer}>
+                <div className={s.footer_info}>
+                    <p className={s.brand}>cards</p>
+                    <p className={s.info_text}>This is a flashcard learning app designed for more effective and
+                        interactive learning.</p>
+                </div>
+                <div className={s.footer_bottom}>
+                    <p className={s.footer_bottom__text}>
+                        2021, Sergey Kuharyonok App
+                    </p>
+                    <p className={s.footer_bottom__text}>
+                        React + Redux + Scss
+                    </p>
                 </div>
             </div>
         </div>
-
     )
 })
